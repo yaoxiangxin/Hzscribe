@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewChatViewController" customModule="Hzscribe" customModuleProvider="target">
+            <connections>
+                <outlet property="bottomLayoutConstraint" destination="0VF-TW-cVy" id="Aio-qr-p8u"/>
+                <outlet property="chatNameLabel" destination="a5Y-KS-wu1" id="81t-YB-BOC"/>
+                <outlet property="chatNameView" destination="aIY-cW-Qpb" id="0Uc-cR-WVv"/>
+                <outlet property="collectionView" destination="FPh-xb-vVy" id="ebs-rM-nZO"/>
+                <outlet property="collectionViewFlowLayout" destination="IZC-M2-RYI" id="sai-cV-JJX"/>
+                <outlet property="dismissButton" destination="SWR-G8-T6L" id="WXS-SZ-2PX"/>
+                <outlet property="newChatLabel" destination="HDa-yo-rFp" id="JXt-oH-lzz"/>
+                <outlet property="submitButton" destination="ggV-Nw-KkG" id="AKP-Fd-uh4"/>
+                <outlet property="textField" destination="5B3-P1-jnm" id="mXk-TZ-kHN"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="c9z-qK-XyC">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0DV-1n-xZs">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SWR-G8-T6L">
+                                    <rect key="frame" x="553.5" y="6" width="45" height="50"/>
+                                    <inset key="contentEdgeInsets" minX="13.5" minY="14" maxX="14" maxY="14"/>
+                                    <state key="normal" image="bTNX"/>
+                                    <connections>
+                                        <action selector="dismiss:" destination="-1" eventType="touchUpInside" id="1Ih-Ds-GLS"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="NEW CHAT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HDa-yo-rFp">
+                                    <rect key="frame" x="264" y="22" width="72" height="17"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="83R-cN-Ej6"/>
+                                <constraint firstItem="HDa-yo-rFp" firstAttribute="centerX" secondItem="0DV-1n-xZs" secondAttribute="centerX" id="EB6-Za-B1F"/>
+                                <constraint firstItem="SWR-G8-T6L" firstAttribute="centerY" secondItem="HDa-yo-rFp" secondAttribute="centerY" id="Zqe-jR-hTz"/>
+                                <constraint firstAttribute="trailing" secondItem="SWR-G8-T6L" secondAttribute="centerX" constant="24" id="ori-vJ-fAj"/>
+                                <constraint firstItem="HDa-yo-rFp" firstAttribute="centerY" secondItem="0DV-1n-xZs" secondAttribute="centerY" id="zKY-Gs-Hbv"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aIY-cW-Qpb">
+                            <rect key="frame" x="0.0" y="60" width="600" height="80"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5Y-KS-wu1">
+                                    <rect key="frame" x="16" y="17" width="70" height="14"/>
+                                    <attributedString key="attributedText">
+                                        <fragment content="CHAT NAME">
+                                            <attributes>
+                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="12" name="Helvetica"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5B3-P1-jnm">
+                                    <rect key="frame" x="16" y="29" width="568" height="30"/>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="done"/>
+                                </textField>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="5B3-P1-jnm" secondAttribute="bottom" constant="21" id="3MC-aM-UCi"/>
+                                <constraint firstAttribute="height" constant="80" id="450-gC-Q5X"/>
+                                <constraint firstItem="a5Y-KS-wu1" firstAttribute="top" secondItem="aIY-cW-Qpb" secondAttribute="top" constant="17" id="AYG-Es-WEV"/>
+                                <constraint firstItem="5B3-P1-jnm" firstAttribute="leading" secondItem="aIY-cW-Qpb" secondAttribute="leading" constant="16" id="cCO-x4-P2G"/>
+                                <constraint firstItem="a5Y-KS-wu1" firstAttribute="leading" secondItem="aIY-cW-Qpb" secondAttribute="leading" constant="16" id="dqW-fw-l0v"/>
+                                <constraint firstAttribute="trailing" secondItem="5B3-P1-jnm" secondAttribute="trailing" constant="16" id="oxl-Tn-lSy"/>
+                            </constraints>
+                        </view>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="FPh-xb-vVy">
+                            <rect key="frame" x="0.0" y="140" width="600" height="410"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IZC-M2-RYI">
+                                <size key="itemSize" width="50" height="50"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                        </collectionView>
+                        <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ggV-Nw-KkG">
+                            <rect key="frame" x="0.0" y="550" width="600" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="s7M-w2-fck"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <state key="normal" title="START CHAT"/>
+                        </button>
+                    </subviews>
+                    <gestureRecognizers/>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="c9z-qK-XyC" secondAttribute="bottom" id="0VF-TW-cVy"/>
+                <constraint firstAttribute="trailing" secondItem="c9z-qK-XyC" secondAttribute="trailing" id="Ukx-9Q-3gZ"/>
+                <constraint firstItem="c9z-qK-XyC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="cuq-2v-yNR"/>
+                <constraint firstItem="c9z-qK-XyC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="pTU-2g-yO5"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="bTNX" width="17" height="17"/>
+    </resources>
+</document>

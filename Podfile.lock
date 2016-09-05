@@ -1,0 +1,23 @@
+PODS:
+  - Alamofire (3.4.2)
+  - AlamofireImage (2.4.1):
+    - Alamofire (~> 3.3)
+  - Intrepid (0.4.0):
+    - Intrepid/Core (= 0.4.0)
+  - Intrepid/Core (0.4.0):
+    - IP-UIKit-Wisdom (= 0.0.9)
+  - IP-UIKit-Wisdom (0.0.9)
+
+DEPENDENCIES:
+  - AlamofireImage (~> 2.0)
+  - Intrepid
+
+SPEC CHECKSUMS:
+  Alamofire: 6aa33201d20d069e1598891cf928883ff1888c7a
+  AlamofireImage: 3ccf3347d9ea24580dc11fb892770a0be6a29826
+  Intrepid: 975d476ea2767464aefcbe452dfeaecf0f896335
+  IP-UIKit-Wisdom: cd9838571e97427a0c61c05d856eaaca9afd7c1a
+
+PODFILE CHECKSUM: 3800a770eb947fcf8696728be23da0e491da9a77
+
+COCOAPODS: 1.0.1

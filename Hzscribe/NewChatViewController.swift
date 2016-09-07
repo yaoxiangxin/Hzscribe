@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewChatViewController: UIViewController {
+class NewChatViewController: UIViewController, UITextFieldDelegate, UICollectionViewDelegate {
     
     static let kCellIdentifier = "ContactCollectionViewCell"
 
@@ -29,10 +29,17 @@ class NewChatViewController: UIViewController {
     var contactDataSource: ContactDataSource!
     var defaultNamingDisabled = false
     
+    // MARK: Action
     @IBAction func dismiss(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
 
+    func clearTextField() {
+        textField.text = nil
+        textFieldTextDidChange()
+    }
+    
+    // MARK: Helper
     func verifySubmitButtonState() {
         submitButton.enabled = textField.hasText() && collectionView.indexPathsForSelectedItems()?.count > 0
         submitButton.backgroundColor = submitButton.enabled ? .blackColor() : .bs_coolGrey()
@@ -59,11 +66,6 @@ class NewChatViewController: UIViewController {
         verifySubmitButtonState()
     }
     
-    func clearTextField() {
-        textField.text = nil
-        textFieldTextDidChange()
-    }
-    
     func selectedItemsDidChange() {
         if !defaultNamingDisabled {
             applyDefaultNaming()
@@ -71,10 +73,7 @@ class NewChatViewController: UIViewController {
         verifySubmitButtonState()
     }
     
-}
-
-extension NewChatViewController: UITextFieldDelegate {
-
+    // MARK: UITextFieldDelegate
     func textFieldDidEndEditing(textField: UITextField) {
         if !textField.hasText() {
             applyDefaultNaming()
@@ -86,11 +85,8 @@ extension NewChatViewController: UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-
-}
-
-extension NewChatViewController: UICollectionViewDelegate {
-
+    
+    // MARK: UICollectionViewDelegate
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         selectedItemsDidChange()
     }
@@ -99,10 +95,7 @@ extension NewChatViewController: UICollectionViewDelegate {
         selectedItemsDidChange()
     }
     
-}
-
-extension NewChatViewController /*override*/ {
-
+    // MARK: Override
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
@@ -126,11 +119,8 @@ extension NewChatViewController /*override*/ {
         
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
-
-}
-
-extension NewChatViewController /*ui setup*/ {
-
+    
+    // MARK: UI Setup
     func setUpUI() {
         func setUpNewChatLabel() {
             let paragraphStyle = NSMutableParagraphStyle()
@@ -227,11 +217,8 @@ extension NewChatViewController /*ui setup*/ {
         setUpCollectionView()
         setUpSubmitButton()
     }
-
-}
-
-extension NewChatViewController /*managing keyboard*/ {
-
+    
+    // MARK: Managing keyboard
     func registerForKeyboardNotifications() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillShow), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillHide), name: UIKeyboardWillHideNotification, object: nil)
@@ -246,5 +233,5 @@ extension NewChatViewController /*managing keyboard*/ {
     func keyboardWillHide(notification: NSNotification) {
         bottomLayoutConstraint.constant = 0.0
     }
-
+    
 }
